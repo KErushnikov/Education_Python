@@ -2,7 +2,7 @@
 
 # Решение
 
-https://github.com/KErushnikov/Education_Python/blob/main/05.functions/homework.py
+https://github.com/KErushnikov/Education_Python/blob/main/5.functions/homework.py
 
 Я работаю секретарем и мне постоянно приходят различные документы. Я должен быть очень внимателен чтобы не потерять ни один документ. Каталог документов хранится в следующем виде:
 
