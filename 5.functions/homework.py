@@ -1,35 +1,37 @@
 documents = [
-        {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
-        {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
-        {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
-      ]
+    {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
+    {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
+    {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
+]
 
 directories = {
-        '1': ['2207 876234', '11-2'],
-        '2': ['10006'],
-        '3': []
-      }
+    '1': ['2207 876234', '11-2'],
+    '2': ['10006'],
+    '3': []
+}
+
 
 def get_name(docs):
     user_input = input('Input document number: ')
     test_list = list()
     for i in docs:
         test_list.append(i['number'])
-    
-    if  user_input in test_list:
+
+    if user_input in test_list:
         for i in docs:
             if user_input == i['number']:
                 print(i['name'])
     else:
         print('There is no id with this number')
-    
+
+
 def get_shelf(dirs):
     user_input = input('Input document number: ')
     test_list = list()
     for v in dirs.values():
         for el in v:
             test_list.append(el)
-    
+
     if user_input in test_list:
         for k, v in dirs.items():
             if v.count(user_input) > 0:
@@ -37,6 +39,7 @@ def get_shelf(dirs):
     else:
         print('There is no id with this number')
     return k
+
 
 def get_list(docs):
     for i in docs:
@@ -46,10 +49,12 @@ def get_list(docs):
         name = every_dict.get("name")
         print(t, num, name)
 
+
 def get_list_shelf(dirs):
     for k, v in dirs.items():
         print(f'Shelf={k}, Docs={v}')
-    
+
+
 def add_doc(docs, dirs):
     type = input('Input type of document: ')
     number = input('Input number: ')
@@ -64,8 +69,9 @@ def add_doc(docs, dirs):
                 print('Documents added to shelf and registry')
     else:
         print('There is no shelf. Documents do not added')
-            
+
     return docs, dirs
+
 
 def del_doc(docs, dirs):
     user_input = input('Input document number: ')
@@ -101,14 +107,14 @@ def move_doc(dirs):
             if v.count(user_input) > 0:
                 v.remove(user_input)
                 for k, v in dirs.items():
-                # print(v.count(user_input), k.count(dest_shelf))
+                    # print(v.count(user_input), k.count(dest_shelf))
                     if k.count(dest_shelf) > 0:
                         v.append(user_input)
     elif user_input in test_list and dest_shelf not in dirs:
         print('There is no shelf with this number')
     elif user_input not in test_list and dest_shelf in dirs:
         print('There is no id with this number')
-    
+
     return dirs
 
 
@@ -119,8 +125,9 @@ def add_shelf(dirs):
         dirs[new_shelf] = new_list
     elif new_shelf in dirs:
         print(f'Shelf with number {new_shelf} already exist')
-    
+
     return dirs
+
 
 while True:
     try:
